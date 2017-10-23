@@ -63,6 +63,7 @@ public class Principal extends javax.swing.JFrame {
         jmReportes = new javax.swing.JMenu();
         jmiReporteConsumo = new javax.swing.JMenuItem();
         jmSettings = new javax.swing.JMenu();
+        jmiConfiguracion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 102, 89));
@@ -181,6 +182,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jmReportes);
 
         jmSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/configuration.png"))); // NOI18N
+
+        jmiConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/mechanical-gears-.png"))); // NOI18N
+        jmiConfiguracion.setText("CONFIGURACIÓN");
+        jmSettings.add(jmiConfiguracion);
+
         jMenuBar1.add(jmSettings);
 
         setJMenuBar(jMenuBar1);
@@ -310,6 +316,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jmReportes;
     private javax.swing.JMenu jmSettings;
     private javax.swing.JMenuItem jmiCerrarSesion;
+    private javax.swing.JMenuItem jmiConfiguracion;
     private javax.swing.JMenuItem jmiEmpleados;
     private javax.swing.JMenuItem jmiIniciarSesion;
     private javax.swing.JMenuItem jmiPacientes;

@@ -427,8 +427,8 @@ public class jdValidar extends java.awt.Dialog {
     }//GEN-LAST:event_formWindowOpened
 
     private void jbtFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtFinalizarActionPerformed
-        //actualizarReporteConsumos();
-        ctrConfig.openFileExplorer("http://localhost/sigTRIAGE/Inicio/Documentos/ConsumoMaterialesOsteo?numTemp="+strNumTemp);
+        actualizarReporteConsumos();
+        
     }//GEN-LAST:event_jbtFinalizarActionPerformed
 
     /**
@@ -465,6 +465,7 @@ public class jdValidar extends java.awt.Dialog {
                 Principal.jdpEscritorio.removeAll();
                 Principal.jdpEscritorio.revalidate();
                 Principal.jdpEscritorio.repaint();
+                ctrConfig.openFileExplorer("http://localhost/sigTRIAGE/Inicio/Documentos/ConsumoMaterialesOsteo?numTemp="+strNumTemp);
                 
             }else{
                 ctrConfig.msjError("A OCURRIDO UN ERROR AL GUARDAR LA INFORMACIÓN");

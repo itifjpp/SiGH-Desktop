@@ -33,9 +33,9 @@ public class Principal extends javax.swing.JFrame {
         Shape forma=new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,10,10);
         AWTUtilities.setWindowShape(this, forma); 
         this.getContentPane().setBackground(new Color(37, 102,89));
-        jmOpciones.setEnabled(false);
+        //jmOpciones.setEnabled(false);
         //jmEmpleados.setEnabled(false);
-        jmPacientes.setEnabled(false);
+        //jmPacientes.setEnabled(false);
     }
 //    
     /**

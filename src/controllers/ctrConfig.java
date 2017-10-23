@@ -36,7 +36,7 @@ public class ctrConfig {
     }
     public static void openFileExplorer(String strUrl){
         try {
-            Process process=Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe \"www.google.com");
+            Process process=Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe \""+strUrl+"");
         } catch (Exception e) {
             e.printStackTrace();
         }

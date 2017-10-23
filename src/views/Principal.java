@@ -62,6 +62,7 @@ public class Principal extends javax.swing.JFrame {
         jmiPacientes = new javax.swing.JMenuItem();
         jmReportes = new javax.swing.JMenu();
         jmiReporteConsumo = new javax.swing.JMenuItem();
+        jmSettings = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 102, 89));
@@ -82,7 +83,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jdpEscritorioLayout.setVerticalGroup(
             jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+            .addGap(0, 439, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
@@ -115,7 +116,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jmOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/menu (1).png"))); // NOI18N
+        jmOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/option_menu.png"))); // NOI18N
         jmOpciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jmOpciones.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jmOpciones.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -178,6 +179,9 @@ public class Principal extends javax.swing.JFrame {
         jmReportes.add(jmiReporteConsumo);
 
         jMenuBar1.add(jmReportes);
+
+        jmSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/configuration.png"))); // NOI18N
+        jMenuBar1.add(jmSettings);
 
         setJMenuBar(jMenuBar1);
 
@@ -304,6 +308,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jmOpciones;
     private javax.swing.JMenu jmPacientes;
     private javax.swing.JMenu jmReportes;
+    private javax.swing.JMenu jmSettings;
     private javax.swing.JMenuItem jmiCerrarSesion;
     private javax.swing.JMenuItem jmiEmpleados;
     private javax.swing.JMenuItem jmiIniciarSesion;

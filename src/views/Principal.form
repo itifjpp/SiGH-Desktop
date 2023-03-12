@@ -10,9 +10,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jmOpciones">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/option_menu.png"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Men&#xfa;"/>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalAlignment" type="int" value="3"/>
@@ -21,10 +19,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmiIniciarSesion">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/login.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N"/>
+                <Property name="text" type="java.lang.String" value="Iniciar sesi&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiIniciarSesionActionPerformed"/>
@@ -32,19 +27,14 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmiCerrarSesion">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/lock.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="CERRAR SESI&#xd3;N"/>
+                <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmEmpleados">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/man (1).png"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Usuarios"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor Por defecto"/>
             </Property>
@@ -56,10 +46,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmiEmpleados">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/group.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="EMPLEADOS"/>
+                <Property name="text" type="java.lang.String" value="Empleados"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiEmpleadosActionPerformed"/>
@@ -67,60 +54,14 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jmPacientes">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/user (1).png"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalAlignment" type="int" value="3"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiPacientes">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/group.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="PACIENTES"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jmReportes">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/clipboard.png"/>
-            </Property>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiReporteConsumo">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/list.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="REPORTE DE CONSUMOS"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiReporteConsumoActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="jmSettings">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/configuration.png"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmiConfiguracion">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/mechanical-gears-.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="CONFIGURACI&#xd3;N"/>
+                <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -129,11 +70,10 @@
     </Menu>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="0"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="59" green="66" red="25" type="rgb"/>
     </Property>
-    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -158,7 +98,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jdpEscritorio" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -170,11 +109,12 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" pref="307" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                      <Component id="jLabel4" max="32767" attributes="0"/>
+                      <Component id="jLabel4" pref="404" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
+          <Component id="jdpEscritorio" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -215,7 +155,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="439" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="484" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

@@ -18,7 +18,7 @@ public class ctrlLogin {
     static Connection con=(Connection)ctrlConexion.ctrConecta();
     static PreparedStatement ps=null;
     public static ResultSet getAreasAcceso()throws SQLException{
-        ps=con.prepareStatement("SELECT * FROM os_areas_acceso");
+        ps=con.prepareStatement("SELECT * FROM tbl_areasacceso");
         ResultSet rs=ps.executeQuery();
         return rs;
     }

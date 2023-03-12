@@ -49,7 +49,7 @@ public class ctrlConexion {
     public static Connection ctrConecta(){
         leerIni("Config.ini");
         try {
-            Class.forName("org.gjt.mm.mysql.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://"+strIp+":"+strPuerto +"/"+strBd,strUser, strPass);
             System.err.println("Conexión Exitosa");
             return con;

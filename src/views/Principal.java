@@ -30,8 +30,8 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         setTitle("SISTEMA DE GESTIÓN HOSPITALARIA MAGDALENA"); 
         setLocationRelativeTo(this);
-        Shape forma=new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,10,10);
-        AWTUtilities.setWindowShape(this, forma); 
+//        Shape forma=new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,10,10);
+//        AWTUtilities.setWindowShape(this, forma); 
         this.getContentPane().setBackground(new Color(37, 102,89));
         //jmOpciones.setEnabled(false);
         //jmEmpleados.setEnabled(false);
@@ -58,16 +58,11 @@ public class Principal extends javax.swing.JFrame {
         jmiCerrarSesion = new javax.swing.JMenuItem();
         jmEmpleados = new javax.swing.JMenu();
         jmiEmpleados = new javax.swing.JMenuItem();
-        jmPacientes = new javax.swing.JMenu();
-        jmiPacientes = new javax.swing.JMenuItem();
-        jmReportes = new javax.swing.JMenu();
-        jmiReporteConsumo = new javax.swing.JMenuItem();
         jmSettings = new javax.swing.JMenu();
         jmiConfiguracion = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(37, 102, 89));
-        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -84,7 +79,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jdpEscritorioLayout.setVerticalGroup(
             jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
@@ -117,14 +112,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jmOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/option_menu.png"))); // NOI18N
+        jmOpciones.setText("Menú");
         jmOpciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jmOpciones.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jmOpciones.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jmOpciones.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jmiIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/login.png"))); // NOI18N
-        jmiIniciarSesion.setText("INICIAR SESIÓN");
+        jmiIniciarSesion.setText("Iniciar sesión");
         jmiIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiIniciarSesionActionPerformed(evt);
@@ -132,21 +126,19 @@ public class Principal extends javax.swing.JFrame {
         });
         jmOpciones.add(jmiIniciarSesion);
 
-        jmiCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/lock.png"))); // NOI18N
-        jmiCerrarSesion.setText("CERRAR SESIÓN");
+        jmiCerrarSesion.setText("Cerrar sesión");
         jmOpciones.add(jmiCerrarSesion);
 
         jMenuBar1.add(jmOpciones);
 
-        jmEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/man (1).png"))); // NOI18N
+        jmEmpleados.setText("Usuarios");
         jmEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jmEmpleados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jmEmpleados.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jmEmpleados.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jmEmpleados.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jmiEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/group.png"))); // NOI18N
-        jmiEmpleados.setText("EMPLEADOS");
+        jmiEmpleados.setText("Empleados");
         jmiEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiEmpleadosActionPerformed(evt);
@@ -156,35 +148,9 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmEmpleados);
 
-        jmPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/user (1).png"))); // NOI18N
-        jmPacientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jmPacientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jmPacientes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jmPacientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jmSettings.setText("Configuración");
 
-        jmiPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/group.png"))); // NOI18N
-        jmiPacientes.setText("PACIENTES");
-        jmPacientes.add(jmiPacientes);
-
-        jMenuBar1.add(jmPacientes);
-
-        jmReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/clipboard.png"))); // NOI18N
-
-        jmiReporteConsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/list.png"))); // NOI18N
-        jmiReporteConsumo.setText("REPORTE DE CONSUMOS");
-        jmiReporteConsumo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiReporteConsumoActionPerformed(evt);
-            }
-        });
-        jmReportes.add(jmiReporteConsumo);
-
-        jMenuBar1.add(jmReportes);
-
-        jmSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/configuration.png"))); // NOI18N
-
-        jmiConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/mechanical-gears-.png"))); // NOI18N
-        jmiConfiguracion.setText("CONFIGURACIÓN");
+        jmiConfiguracion.setText("Configuración");
         jmSettings.add(jmiConfiguracion);
 
         jMenuBar1.add(jmSettings);
@@ -195,7 +161,6 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpEscritorio)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,8 +171,9 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(223, 223, 223)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(jdpEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,15 +224,6 @@ public class Principal extends javax.swing.JFrame {
         empleados.setVisible(true);
     }//GEN-LAST:event_jmiEmpleadosActionPerformed
 
-    private void jmiReporteConsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiReporteConsumoActionPerformed
-        jifReportarConsumo consumo=new jifReportarConsumo();
-        jdpEscritorio.add(consumo);
-        Dimension desktopSize = jdpEscritorio.getSize();
-        Dimension FrameSize = consumo.getSize();
-        consumo.setLocation((desktopSize.width - FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);      
-        consumo.setVisible(true);
-    }//GEN-LAST:event_jmiReporteConsumoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -312,15 +269,11 @@ public class Principal extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane jdpEscritorio;
     private javax.swing.JMenu jmEmpleados;
     private javax.swing.JMenu jmOpciones;
-    private javax.swing.JMenu jmPacientes;
-    private javax.swing.JMenu jmReportes;
     private javax.swing.JMenu jmSettings;
     private javax.swing.JMenuItem jmiCerrarSesion;
     private javax.swing.JMenuItem jmiConfiguracion;
     private javax.swing.JMenuItem jmiEmpleados;
     private javax.swing.JMenuItem jmiIniciarSesion;
-    private javax.swing.JMenuItem jmiPacientes;
-    private javax.swing.JMenuItem jmiReporteConsumo;
     // End of variables declaration//GEN-END:variables
     public void ObtenerInformacionUsuario(int intId){
 
@@ -337,7 +290,5 @@ public class Principal extends javax.swing.JFrame {
     }
     public void accionesMenus(boolean bolAccion){
         jmEmpleados.setEnabled(bolAccion);
-        jmPacientes.setEnabled(bolAccion);
-        jmReportes.setEnabled(bolAccion);
     }
 }

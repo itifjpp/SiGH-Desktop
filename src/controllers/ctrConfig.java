@@ -5,6 +5,9 @@
  */
 package controllers;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -14,16 +17,16 @@ import javax.swing.table.DefaultTableModel;
  * @author rana
  */
 public class ctrConfig {
-    static String strTitulo="Sistema de Gestión Hospitalaria Magdalena";
+    static String strTitulo="SiMA";
     
     public static void msjInformation(String strMsj){
-        JOptionPane.showMessageDialog(null, strMsj,strTitulo,JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, strMsj,"Información",JOptionPane.INFORMATION_MESSAGE);
     }
     public static void msjWarning(String strMsj){
-        JOptionPane.showMessageDialog(null, strMsj,strTitulo,JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, strMsj,"Información",JOptionPane.WARNING_MESSAGE);
     }
     public static void msjError(String strMsj){
-        JOptionPane.showMessageDialog(null, strMsj,strTitulo,JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, strMsj,"Información",JOptionPane.ERROR_MESSAGE);
     }
     /*CONFIGURACIONES DE TABLA*/
     static DefaultTableModel model=new DefaultTableModel();
@@ -34,6 +37,14 @@ public class ctrConfig {
         }
         jTable.setModel(model);
     }
+    
+    
+    public static String getCurrentDate(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Calendar cal = Calendar.getInstance();
+        return dateFormat.format(cal.getTime());
+    }
+
     public static void openFileExplorer(String strUrl){
         try {
             Process process=Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe \""+strUrl+"");

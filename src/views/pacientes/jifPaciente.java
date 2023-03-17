@@ -1,14 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package views.empleados;
+package views.pacientes;
 
-import controllers.ctrConfig;
-import controllers.ctrlConexion;
-import controllers.ctrlEmpleados;
-import models.mdlEmpleados;
 import com.digitalpersona.onetouch.DPFPDataPurpose;
 import com.digitalpersona.onetouch.DPFPFeatureSet;
 import com.digitalpersona.onetouch.DPFPGlobal;
@@ -27,6 +22,9 @@ import com.digitalpersona.onetouch.processing.DPFPEnrollment;
 import com.digitalpersona.onetouch.processing.DPFPFeatureExtraction;
 import com.digitalpersona.onetouch.processing.DPFPImageQualityException;
 import com.digitalpersona.onetouch.verification.DPFPVerification;
+import controllers.ctrConfig;
+import controllers.ctrlConexion;
+import controllers.ctrlPacientes;
 import java.awt.Image;
 import java.io.ByteArrayInputStream;
 import java.sql.Connection;
@@ -34,15 +32,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
  *
- * @author rana
+ * @author felipe de jesus
  */
-public class jifEmpleado extends javax.swing.JInternalFrame {
-    public int intEmpleadoId=0;
+public class jifPaciente extends javax.swing.JInternalFrame {
+    public int intPacienteId=0;
     static Connection con=(Connection)ctrlConexion.ctrConecta();
     static PreparedStatement ps=null;
     private DPFPCapture Lector=DPFPGlobal.getCaptureFactory().createCapture();
@@ -50,7 +47,11 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
     private DPFPVerification Verificador=DPFPGlobal.getVerificationFactory().createVerification();
     private DPFPTemplate dPFPTemplate;
     private static String TEMPLATE_PROPERTY="template";
-    public jifEmpleado() {
+    /**
+     * Creates new form jifPaciente
+     */
+
+    public jifPaciente() {
         initComponents();
         btnGuardar.setEnabled(false);
     }
@@ -210,10 +211,10 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
         Integer intHuella=dPFPTemplate.serialize().length;
         try {
             
-            ps=con.prepareStatement("UPDATE os_empleados SET empleado_dp=? WHERE empleado_id=?");
-            System.err.println("ID:"+intEmpleadoId);
+            ps=con.prepareStatement("UPDATE tbl_pacientes SET paciente_dp=? WHERE paciente_id=?");
+            System.err.println("ID:"+intPacienteId);
             ps.setBinaryStream(1, arrayInputStream,intHuella);
-            ps.setInt(2,intEmpleadoId);
+            ps.setInt(2,intPacienteId);
             int intSql=ps.executeUpdate();
             con.close();
             ps.close();
@@ -237,24 +238,53 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jlbPacienteId = new javax.swing.JTextField();
+        btnStopLector = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jlbPacienteNss = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jlbPacienteNombre = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jlbPacienteApellidos = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jlbImageHuella = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jtfMatricula = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jtfNombre = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jtfApellidos = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jtfCategoria = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtaMensajes = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         btnIniciarLector = new javax.swing.JButton();
-        btnStopLector = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("EMPLEADO");
+        setTitle("Detalles del paciente");
+
+        jlbPacienteId.setEditable(false);
+
+        btnStopLector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/x-button.png"))); // NOI18N
+        btnStopLector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStopLectorActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("NÚMERO DE SEGURO SOCIAL");
+
+        jlbPacienteNss.setEditable(false);
+
+        jLabel3.setText("NOMBRE");
+
+        jlbPacienteNombre.setEditable(false);
+
+        jLabel4.setText("APELLIDOS");
+
+        jlbPacienteApellidos.setEditable(false);
+
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -275,45 +305,16 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setText("MATRICULA");
-
-        jtfMatricula.setEditable(false);
-
-        jLabel2.setText("NOMBRE");
-
-        jtfNombre.setEditable(false);
-
-        jLabel3.setText("APELLIDOS");
-
-        jtfApellidos.setEditable(false);
-
-        jLabel4.setText("CATEGORÍA");
-
-        jtfCategoria.setEditable(false);
-
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnGuardar.setText("GUARDAR");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-
         jtaMensajes.setColumns(20);
         jtaMensajes.setRows(5);
         jScrollPane1.setViewportView(jtaMensajes);
+
+        jLabel1.setText("ID");
 
         btnIniciarLector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fingerprint-scan.png"))); // NOI18N
         btnIniciarLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarLectorActionPerformed(evt);
-            }
-        });
-
-        btnStopLector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/x-button.png"))); // NOI18N
-        btnStopLector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopLectorActionPerformed(evt);
             }
         });
 
@@ -340,12 +341,12 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jtfNombre)
-                                            .addComponent(jtfMatricula)
+                                            .addComponent(jlbPacienteNss)
+                                            .addComponent(jlbPacienteId)
                                             .addComponent(jLabel3)
-                                            .addComponent(jtfApellidos)
+                                            .addComponent(jlbPacienteNombre)
                                             .addComponent(jLabel4)
-                                            .addComponent(jtfCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
+                                            .addComponent(jlbPacienteApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(181, 181, 181)
@@ -360,32 +361,37 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlbPacienteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlbPacienteNss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlbPacienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jlbPacienteApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnIniciarLector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnStopLector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnStopLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopLectorActionPerformed
+        //btnStopLector.setEnabled(false);
+        stop();
+    }//GEN-LAST:event_btnStopLectorActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try {
@@ -400,14 +406,9 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
         start();
         EstadoHuellas();
         btnGuardar.setEnabled(false);
-//        btnIniciarLector.setEnabled(false);
-//        btnStopLector.setEnabled(true);
+        //        btnIniciarLector.setEnabled(false);
+        //        btnStopLector.setEnabled(true);
     }//GEN-LAST:event_btnIniciarLectorActionPerformed
-
-    private void btnStopLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopLectorActionPerformed
-        //btnStopLector.setEnabled(false);
-        stop();
-    }//GEN-LAST:event_btnStopLectorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -421,25 +422,25 @@ public class jifEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlbImageHuella;
+    private javax.swing.JTextField jlbPacienteApellidos;
+    private javax.swing.JTextField jlbPacienteId;
+    private javax.swing.JTextField jlbPacienteNombre;
+    private javax.swing.JTextField jlbPacienteNss;
     private javax.swing.JTextArea jtaMensajes;
-    private javax.swing.JTextField jtfApellidos;
-    private javax.swing.JTextField jtfCategoria;
-    private javax.swing.JTextField jtfMatricula;
-    private javax.swing.JTextField jtfNombre;
     // End of variables declaration//GEN-END:variables
-    public void obtenerInformacionEmpleado(int intId){
+    public void obtenerInformacionPaciente(int intId){
         try {
-            ResultSet rs=ctrlEmpleados.getEmpleado(intId);
+            ResultSet rs=ctrlPacientes.getPaciente(intId);
             if(rs.next()){
-                intEmpleadoId=intId;
-                jtfMatricula.setText(rs.getString("empleado_matricula"));
-                jtfNombre.setText(rs.getString("empleado_nombre"));
-                jtfApellidos.setText(rs.getString("empleado_ap")+" "+rs.getString("empleado_am"));
-                jtfCategoria.setText(rs.getString("empleado_categoria"));
+                intPacienteId=intId;
+                jlbPacienteId.setText(rs.getString("paciente_id"));
+                jlbPacienteNss.setText(rs.getString("paciente_nss")+" "+rs.getString("paciente_nss_agregado"));
+                jlbPacienteNombre.setText(rs.getString("paciente_nombre"));
+                jlbPacienteApellidos.setText(rs.getString("paciente_ap")+" "+rs.getString("paciente_ap"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
 }

@@ -1,37 +1,33 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package views.empleados;
+package views.pacientes;
 
 import controllers.ctrConfig;
 import controllers.ctrlEmpleados;
+import controllers.ctrlPacientes;
 import controllers.tableModel;
-import views.Principal;
-import static views.Principal.jdpEscritorio;
-import java.awt.event.*;
-import java.awt.*;
+import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import views.Principal;
+import static views.Principal.jdpEscritorio;
 
 /**
  *
- * @author rana
+ * @author felipe de jesus
  */
-public class jifEmpleados extends javax.swing.JInternalFrame {
+public class jifPacientes extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form jifEmpleados
+     * Creates new form jifPacientes
      */
-    public jifEmpleados() {
+    public jifPacientes() {
         initComponents();
         tableConfig();
-        tableEmpleados("Si");
+        tablePacientes("Si");
     }
 
     /**
@@ -43,28 +39,19 @@ public class jifEmpleados extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jtfCampo = new javax.swing.JTextField();
         jcbAtribute = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtblEmpleados = new javax.swing.JTable();
+        jtblPacientes = new javax.swing.JTable();
         jbtBuscar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jtfCampo = new javax.swing.JTextField();
 
         setClosable(true);
-        setTitle("EMPLEADOS");
+        setTitle("PACIENTES");
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel1.setText("BUSCAR EMPLEADO");
+        jcbAtribute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "paciente_id", "paciente_nss", "paciente_nombre" }));
 
-        jtfCampo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtfCampoKeyReleased(evt);
-            }
-        });
-
-        jcbAtribute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleado_id", "empleado_nombre", "empleado_matricula" }));
-
-        jtblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
+        jtblPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -75,17 +62,26 @@ public class jifEmpleados extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtblEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtblPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtblEmpleadosMouseClicked(evt);
+                jtblPacientesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jtblEmpleados);
+        jScrollPane1.setViewportView(jtblPacientes);
 
         jbtBuscar.setText("BUSCAR");
         jbtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel1.setText("BUSCAR PACIENTE");
+
+        jtfCampo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfCampoKeyReleased(evt);
             }
         });
 
@@ -100,11 +96,11 @@ public class jifEmpleados extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jcbAtribute, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfCampo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtfCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtBuscar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE))
                 .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
@@ -118,46 +114,46 @@ public class jifEmpleados extends javax.swing.JInternalFrame {
                     .addComponent(jcbAtribute, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfCampoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCampoKeyReleased
-        
-    }//GEN-LAST:event_jtfCampoKeyReleased
+    private void jtblPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblPacientesMouseClicked
+        int row = jtblPacientes.rowAtPoint(evt.getPoint());
+        int col = jtblPacientes.columnAtPoint(evt.getPoint());
 
-    private void jbtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtBuscarActionPerformed
-        tableEmpleados("Si");
-    }//GEN-LAST:event_jbtBuscarActionPerformed
-
-    private void jtblEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblEmpleadosMouseClicked
-        int row = jtblEmpleados.rowAtPoint(evt.getPoint());
-        int col = jtblEmpleados.columnAtPoint(evt.getPoint());
-        
-        if ( row >= 0 && col >= 0 ) {   
+        if ( row >= 0 && col >= 0 ) {
             //si celda contiene imagen
             if( model.getValueAt(row, col) != null ){
-                int intEmpleadoId=(Integer)jtblEmpleados.getValueAt(row, 0);
-                String strValue=jtblEmpleados.getValueAt(row, col).toString();
+                int intEmpleadoPaciente=(Integer)jtblPacientes.getValueAt(row, 0);
+                String strValue=jtblPacientes.getValueAt(row, col).toString();
                 if(strValue.equals("EDITAR")){
-                    jifEmpleado empleado=new jifEmpleado();
+                    jifPaciente empleado=new jifPaciente();
                     Principal.jdpEscritorio.add(empleado);
-                    empleado.obtenerInformacionEmpleado(intEmpleadoId);
+                    empleado.obtenerInformacionPaciente(intEmpleadoPaciente);
                     Dimension desktopSize = jdpEscritorio.getSize();
                     Dimension FrameSize = empleado.getSize();
-                    empleado.setLocation((desktopSize.width - FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);  
+                    empleado.setLocation((desktopSize.width - FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
                     empleado.moveToFront();
                     empleado.setVisible(true);
                 }else if(strValue.equals("ELIMINAR")){
-                    
+
                 }
 
-            }                             
+            }
         }
-    }//GEN-LAST:event_jtblEmpleadosMouseClicked
+    }//GEN-LAST:event_jtblPacientesMouseClicked
+
+    private void jbtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtBuscarActionPerformed
+        tablePacientes("Si");
+    }//GEN-LAST:event_jbtBuscarActionPerformed
+
+    private void jtfCampoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCampoKeyReleased
+
+    }//GEN-LAST:event_jtfCampoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -165,9 +161,10 @@ public class jifEmpleados extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtBuscar;
     private javax.swing.JComboBox<String> jcbAtribute;
-    private javax.swing.JTable jtblEmpleados;
+    private javax.swing.JTable jtblPacientes;
     private javax.swing.JTextField jtfCampo;
     // End of variables declaration//GEN-END:variables
+
     DefaultTableModel model=new DefaultTableModel();
     public void tableConfig(){
         model=new DefaultTableModel(){//INDICAMOS QUE NO QUEREMOS QUE LAS CELDAS SEAN EDITABLES
@@ -176,46 +173,46 @@ public class jifEmpleados extends javax.swing.JInternalFrame {
             }
         };
         model.addColumn("N°");
-        model.addColumn("MATRICULA");
+        model.addColumn("NSS");
         model.addColumn("NOMBRE");
         model.addColumn("APELLIDOS");
-        model.addColumn("CATEGORIA");
+        model.addColumn("F. NAC");
         model.addColumn("");
         model.addColumn("");
-        jtblEmpleados.setModel(model);
+        jtblPacientes.setModel(model);
         /*ESTABLECEMOS LAS DIMENCIONES DE LAS CELDAS DEL ENCABEZADO*/
-        jtblEmpleados.getColumnModel().getColumn(0).setMaxWidth(50);
-        jtblEmpleados.getColumnModel().getColumn(1).setMaxWidth(100);
-        jtblEmpleados.getColumnModel().getColumn(2).setMaxWidth(200);
-        jtblEmpleados.getColumnModel().getColumn(3).setMaxWidth(200);
-        jtblEmpleados.getColumnModel().getColumn(4).setMaxWidth(200);
-        jtblEmpleados.getColumnModel().getColumn(5).setMaxWidth(60);
-        jtblEmpleados.getColumnModel().getColumn(6).setMaxWidth(65);
+        jtblPacientes.getColumnModel().getColumn(0).setMaxWidth(50);
+        jtblPacientes.getColumnModel().getColumn(1).setMaxWidth(100);
+        jtblPacientes.getColumnModel().getColumn(2).setMaxWidth(200);
+        jtblPacientes.getColumnModel().getColumn(3).setMaxWidth(200);
+        jtblPacientes.getColumnModel().getColumn(4).setMaxWidth(200);
+        jtblPacientes.getColumnModel().getColumn(5).setMaxWidth(60);
+        jtblPacientes.getColumnModel().getColumn(6).setMaxWidth(65);
         //jtEmpleados.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
         /*INDICAMOS QUE LOS ENCABEZADOS NO SE PUEDAD REORDENAR*/
-        jtblEmpleados.getTableHeader().setReorderingAllowed(false);
+        jtblPacientes.getTableHeader().setReorderingAllowed(false);
     }
-    public void tableEmpleados(String strFiltro){
+    public void tablePacientes(String strFiltro){
         /*REMOVEMOS TODAS LAS FILAS DEL MODELO PARA POSTERIORMENTE AGREGAR LAS NUEVAS*/
-        for (int i = jtblEmpleados.getRowCount()-1; i >=0; i--) {
+        for (int i = jtblPacientes.getRowCount()-1; i >=0; i--) {
             model.removeRow(i);
         }
         try {
             ResultSet rs=null;
             if(strFiltro.equals("No")){
-                rs=ctrlEmpleados.getEmpleados();
+                rs=ctrlPacientes.getPacientes();
             }else{
-                rs=ctrlEmpleados.getEmpleadoLike(jtfCampo.getText(), jcbAtribute.getSelectedItem().toString());
+                rs=ctrlPacientes.getPacientesLike(jtfCampo.getText(), jcbAtribute.getSelectedItem().toString());
             }
             while (rs.next()) {                
                 Object object[]={
-                    rs.getInt("empleado_id"),rs.getString("empleado_matricula"),rs.getString("empleado_nombre"),
-                    rs.getString("empleado_ap")+" "+rs.getString("empleado_am"),rs.getString("empleado_categoria"),"EDITAR","ELIMINAR"
+                    rs.getInt("paciente_id"),rs.getString("paciente_nss")+" "+rs.getString("paciente_nss_agregado"),rs.getString("paciente_nombre"),
+                    rs.getString("paciente_ap")+" "+rs.getString("paciente_am"),rs.getString("paciente_fn"),"EDITAR","ELIMINAR"
                 };
-                jtblEmpleados.getColumnModel().getColumn(5).setCellRenderer(new tableModel());
-                jtblEmpleados.getColumnModel().getColumn(6).setCellRenderer(new tableModel());
+                jtblPacientes.getColumnModel().getColumn(5).setCellRenderer(new tableModel());
+                jtblPacientes.getColumnModel().getColumn(6).setCellRenderer(new tableModel());
                 model.addRow(object);
-                jtblEmpleados.setModel(model);
+                jtblPacientes.setModel(model);
             }
         } catch (SQLException e) {
             e.getMessage();

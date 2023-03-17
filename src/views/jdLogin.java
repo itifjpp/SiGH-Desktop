@@ -5,6 +5,7 @@
  */
 package views;
 
+import controllers.ctrConfig;
 import controllers.ctrlLogin;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -14,7 +15,7 @@ import java.sql.ResultSet;
  * @author rana
  */
 public class jdLogin extends java.awt.Dialog {
-
+    ctrConfig ctrConfig= new ctrConfig();
     /**
      * Creates new form jdLogin
      */
@@ -35,11 +36,11 @@ public class jdLogin extends java.awt.Dialog {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jcbAreasAcceso = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jtfMatricula = new javax.swing.JTextField();
+        jtfIdEmpleado = new javax.swing.JTextField();
         btnAcceder = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jtfMatricula = new javax.swing.JTextField();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -49,13 +50,11 @@ public class jdLogin extends java.awt.Dialog {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/image20171019.png"))); // NOI18N
 
-        jLabel2.setText("SELECCIONAR ÁREA");
+        jLabel3.setText("ID DE EMPLEADO");
 
-        jLabel3.setText("MATRICULA");
-
-        jtfMatricula.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtfIdEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtfMatriculaKeyPressed(evt);
+                jtfIdEmpleadoKeyPressed(evt);
             }
         });
 
@@ -63,6 +62,14 @@ public class jdLogin extends java.awt.Dialog {
         btnAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAccederActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("MATRICULA");
+
+        jtfMatricula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfMatriculaKeyPressed(evt);
             }
         });
 
@@ -75,16 +82,16 @@ public class jdLogin extends java.awt.Dialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jcbAreasAcceso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfMatricula)
+                    .addComponent(jtfIdEmpleado)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 98, Short.MAX_VALUE)
                         .addComponent(btnAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jtfMatricula, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -94,14 +101,14 @@ public class jdLogin extends java.awt.Dialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcbAreasAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addGap(4, 4, 4)
+                        .addComponent(jtfMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 6, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -133,6 +140,12 @@ public class jdLogin extends java.awt.Dialog {
         validarAcceso();
     }//GEN-LAST:event_btnAccederActionPerformed
 
+    private void jtfIdEmpleadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfIdEmpleadoKeyPressed
+        if(evt.getKeyCode()==evt.VK_ENTER){
+            validarAcceso();
+        }
+    }//GEN-LAST:event_jtfIdEmpleadoKeyPressed
+
     private void jtfMatriculaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfMatriculaKeyPressed
         if(evt.getKeyCode()==evt.VK_ENTER){
             validarAcceso();
@@ -160,24 +173,42 @@ public class jdLogin extends java.awt.Dialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceder;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> jcbAreasAcceso;
+    private javax.swing.JTextField jtfIdEmpleado;
     private javax.swing.JTextField jtfMatricula;
     // End of variables declaration//GEN-END:variables
     public void validarAcceso(){
-        String strAreaAcceso=jcbAreasAcceso.getSelectedItem().toString();
+//        String strAreaAcceso=jcbAreasAcceso.getSelectedItem().toString();
+        String strIdEmpleado=jtfIdEmpleado.getText();
         String strMatricula=jtfMatricula.getText();
-        System.err.println(strAreaAcceso);
-        System.err.println(strMatricula);
+        if(strIdEmpleado.equals("") || strMatricula.equals("")){
+            this.ctrConfig.msjInformation("Todos los campos son requeridos");
+            return;
+        }
+        try {
+            ResultSet rs=ctrlLogin.pIniciarSesion(strIdEmpleado,strMatricula);
+            if(rs.next()){
+                this.ctrConfig.msjInformation("Inicio valido");
+                
+                Principal dp=new Principal();
+                dp.accionesMenusIniciarSesion();
+//                this.dispose();
+            }else{
+                this.ctrConfig.msjInformation("Id de usuario y/o matricula incorrectos");
+            }   
+        } catch (Exception e) {
+            this.ctrConfig.msjError("Error al procesar la solicitud:"+e.getMessage());
+        }           
+
     }
     
     public void getAreasAcceso(){
         try {
             ResultSet rs=ctrlLogin.getAreasAcceso();
             while (rs.next()) {                
-                jcbAreasAcceso.addItem(rs.getString("areas_acceso_nombre"));
+//                jcbAreasAcceso.addItem(rs.getString("areas_acceso_nombre"));
             }
         } catch (Exception e) {
             e.printStackTrace();

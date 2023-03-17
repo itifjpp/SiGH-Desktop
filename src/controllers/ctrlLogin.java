@@ -22,4 +22,13 @@ public class ctrlLogin {
         ResultSet rs=ps.executeQuery();
         return rs;
     }
+
+   public static ResultSet pIniciarSesion(String strId,String strMatricula)throws SQLException{
+        ps=con.prepareStatement("SELECT * FROM tbl_empleados WHERE empleado_id=? AND empleado_matricula=?");
+        
+        ps.setString(1, strId);
+        ps.setString(2, strMatricula);
+        ResultSet rs=ps.executeQuery();
+        return rs;
+    }
 }
